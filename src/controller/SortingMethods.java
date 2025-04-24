@@ -3,7 +3,7 @@ package controller;
 import models.Person;
 
 public class SortingMethods {
-    public void sortByNameWithBubble(Person[] persons){
+    public void sortByNameWithBubble(Person[] persons){//Metodo para ordenar en orden alfabetico con burbuja
         for (int i = 0; i < persons.length-1; i++) {
             for(int j = 0; j < persons.length - i - 1; j++){
                 if(persons[j].getName().compareTo(persons[j+1].getName()) > 0){
@@ -16,24 +16,24 @@ public class SortingMethods {
 
     }
 
-    public void sortByNameWithSelection(Person[] persons){
+    public void sortByNameWithSelection(Person[] persons){//ordena por la edad de manera ascdente con seleccion
         for (int i = 0; i < persons.length - 1; i++) {
-            int minimo = i;
+            int max = i;
 
             for (int j = i + 1; j < persons.length; j++) {
-                if (persons[j].getName().compareToIgnoreCase(persons[minimo].getName()) < 0) {
-                    minimo = j;
+                if (persons[j].getName().compareToIgnoreCase(persons[max].getName()) > 0) {
+                    max = j;
                 }
             }
 
-            Person temp = persons[minimo];
-            persons[minimo] = persons[i];
-            persons[i] = temp;
+            Person temp = persons[i];
+            persons[i] = persons[max];
+            persons[max] = temp;
         }
 
     }
 
-    public void sortByAgeWithInsertion(Person[] persons){
+    public void sortByAgeWithInsertion(Person[] persons){//ordena por medio de la edad usando insertion
         for (int i = 1; i < persons.length; i++) {
             int actual=persons[i].getAge();
             int j=i-1;
@@ -49,7 +49,7 @@ public class SortingMethods {
 
     }
 
-    public void sortByNameWithInsertion(Person[] persons){
+    public void sortByNameWithInsertion(Person[] persons){//ordena por el nombre con insertion
         for (int i = 1; i < persons.length; i++) {
 
             int j=i-1;
@@ -64,5 +64,8 @@ public class SortingMethods {
         }
 
     }
-}
 
+
+
+
+}
